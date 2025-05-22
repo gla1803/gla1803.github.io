@@ -1,229 +1,657 @@
-/* Базовые настройки */
+/* Базовые стили */
 :root {
     --primary: #0A2463;
     --secondary: #FF6D00;
-    --text: #333;
+    --text: #333333;
     --light-bg: #f9f9f9;
-    --white: #fff;
-    --shadow: 0 5px 15px rgba(0,0,0,0.1);
-    --transition: all 0.3s ease;
-  }
-  
-  /* Общие стили */
-  body {
+}
+
+body {
     font-family: 'Open Sans', sans-serif;
     color: var(--text);
     margin: 0;
+    padding: 0;
     line-height: 1.6;
-  }
-  
-  .container {
+}
+
+.container {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-  }
-  
-  img {
+}
+
+img {
     max-width: 100%;
     height: auto;
-    display: block;
-  }
-  
-  /* Кнопки */
-  .btn {
-    display: inline-block;
-    padding: 10px 25px;
-    border-radius: 4px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: var(--transition);
-    font-weight: 600;
-    text-align: center;
-  }
-  
-  .btn-primary {
-    background: var(--secondary);
-    color: var(--white);
-  }
-  
-  .btn-primary:hover {
-    background: #e05d00;
-  }
-  
-  .btn-secondary {
-    border: 2px solid var(--white);
-    color: var(--white);
-  }
-  
-  .btn-secondary:hover {
-    background: rgba(255,255,255,0.1);
-  }
-  
-  /* Шапка */
-  .header {
-    background: var(--white);
+}
+
+/* Шапка */
+.header {
+    background: white;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     position: fixed;
     width: 100%;
     z-index: 1000;
-    padding: 15px 0;
-  }
-  
-  .header .container {
+    transition: background 0.3s;
+}
+
+.header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  
-  .logo {
+    padding: 15px 0;
+}
+
+.logo {
     font-family: 'Roboto Slab', serif;
     font-size: 24px;
     font-weight: 700;
     color: var(--primary);
-  }
-  
-  .nav {
-    display: flex;
-    gap: 25px;
-  }
-  
-  .nav a {
-    color: var(--text);
+}
+
+.nav a {
+    margin: 0 15px;
     text-decoration: none;
+    color: var(--text);
     font-weight: 600;
-    position: relative;
-  }
-  
-  .nav a:hover {
+    transition: color 0.3s;
+}
+
+.nav a:hover {
     color: var(--secondary);
-  }
-  
-  /* Герой-баннер */
-  .hero {
-    background: 
-      linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-      url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+}
+
+.btn-call {
+    background: var(--secondary);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-call:hover {
+    background: #e05d00;
+}
+
+/* Герой-баннер */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
     background-size: cover;
     background-position: center;
-    color: var(--white);
+    color: white;
     padding: 180px 0 100px;
     text-align: center;
     margin-top: 60px;
-  }
-  
-  .hero h1 {
+}
+
+.hero h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-  }
-  
-  /* Секции */
-  .section {
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.hero-buttons {
+    margin-top: 30px;
+}
+
+.btn-primary {
+    background: var(--secondary);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-right: 15px;
+    display: inline-block;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background: #e05d00;
+}
+
+.btn-secondary {
+    border: 2px solid white;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.3s;
+}
+
+.btn-secondary:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+/* Секции */
+.section {
     padding: 80px 0;
-  }
-  
-  .section-title {
+}
+
+.section-title {
     font-family: 'Roboto Slab', serif;
     color: var(--primary);
     text-align: center;
     margin-bottom: 50px;
+    font-size: 2rem;
     position: relative;
-  }
-  
-  .section-title::after {
+}
+
+.section-title::after {
     content: '';
     display: block;
     width: 80px;
     height: 3px;
     background: var(--secondary);
     margin: 15px auto 0;
-  }
-  
-  /* Карточки */
-  .card {
-    background: var(--white);
+}
+
+/* Товары */
+.products {
+    background: var(--light-bg);
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background: white;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-  }
-  
-  .card:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  }
-  
-  /* Портфолио */
-  .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-  }
-  
-  .portfolio-item {
-    position: relative;
-    height: 300px;
+}
+
+.product-image {
+    height: 200px;
     overflow: hidden;
-    border-radius: 8px;
-  }
-  
-  .portfolio-item img {
+}
+
+.product-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s;
-  }
-  
-  .portfolio-overlay {
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+.product-card h3 {
+    margin: 15px 15px 5px;
+    font-size: 1.2rem;
+}
+
+.product-card p {
+    margin: 0 15px;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.price {
+    margin: 10px 15px;
+    font-weight: 700;
+    color: var(--secondary);
+    font-size: 1.1rem;
+}
+
+.btn-details {
+    display: block;
+    width: calc(100% - 30px);
+    margin: 15px;
+    padding: 10px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-details:hover {
+    background: #081f4f;
+}
+
+/* Услуги */
+.services {
+    background: white;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+    text-align: center;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+}
+
+.service-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.service-card h3 {
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.service-card ul {
+    text-align: left;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.service-card li {
+    margin-bottom: 8px;
+}
+
+/* Портфолио */
+.portfolio {
+    background: var(--light-bg);
+}
+
+.portfolio-filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    background: none;
+    border: 1px solid #ddd;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.portfolio-item {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.portfolio-overlay {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    right: 0;
+    background: rgba(10, 36, 99, 0.8);
+    color: white;
+    padding: 20px;
+    transition: bottom 0.3s;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    bottom: 0;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.1);
+}
+
+.portfolio-overlay h3 {
+    margin-top: 0;
+}
+
+/* О нас */
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-image {
+    flex: 1;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.about-image img {
+    display: block;
+    transition: transform 0.5s;
+}
+
+.about-image:hover img {
+    transform: scale(1.05);
+}
+
+.advantages {
+    margin-top: 30px;
+}
+
+.advantage {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.advantage-icon {
+    background: var(--secondary);
+    color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+/* Контакты */
+.contacts-content {
+    display: flex;
+    gap: 50px;
+    margin-bottom: 50px;
+}
+
+.contacts-info {
+    flex: 1;
+}
+
+.contact-item {
+    margin-bottom: 30px;
+}
+
+.contact-item h3 {
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.contact-item a {
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-item a:hover {
+    color: var(--secondary);
+}
+
+.contacts-form {
+    flex: 1;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.contacts-form h3 {
+    margin-top: 0;
+    color: var(--primary);
+}
+
+.contacts-form input,
+.contacts-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.contacts-form textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.contacts-map {
+    height: 400px;
+}
+
+.contacts-map iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Подвал */
+.footer {
+    background: var(--primary);
+    color: white;
+    padding: 40px 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.footer-logo {
+    font-family: 'Roboto Slab', serif;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.footer-contacts a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .nav {
+        margin: 15px 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .phone {
+        margin-top: 15px;
+    }
+    
+    .hero {
+        padding: 120px 0 80px;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .contacts-content {
+        flex-direction: column;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-buttons .btn-primary,
+    .hero-buttons .btn-secondary {
+        display: block;
+        margin: 10px auto;
+        width: 80%;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* Стили для кнопки скачивания */
+.download-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: var(--secondary);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 0 0 8px 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.download-btn:hover {
+    background: #e05d00;
+}
+
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Основные стили для элемента портфолио */
+.portfolio-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio-image-container {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+/* Стили для кнопки скачивания */
+.download-btn {
+    display: block;
+    padding: 12px;
+    background: var(--secondary);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: auto; /* Прижимаем кнопку к низу */
+}
+
+.download-btn:hover {
+    background: #e05d00;
+}
+
+/* Оверлей */
+.portfolio-overlay {
     position: absolute;
     bottom: -100%;
     left: 0;
     right: 0;
     background: rgba(10, 36, 99, 0.9);
-    color: var(--white);
+    color: white;
     padding: 20px;
-    transition: var(--transition);
-  }
-  
-  .portfolio-item:hover .portfolio-overlay {
+    transition: bottom 0.3s;
+}
+
+.portfolio-item:hover .portfolio-overlay {
     bottom: 0;
-  }
-  
-  .portfolio-item:hover img {
-    transform: scale(1.1);
-  }
-  
-  .download-btn {
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.05);
+}
+
+
+.portfolio-item {
+    position: relative;
+    height: 300px; /* Фиксированная высота */
+}
+
+.download-btn {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     z-index: 10;
-    background: var(--secondary);
-    color: var(--white);
-    padding: 12px;
-    text-align: center;
-    border: none;
-    cursor: pointer;
-    transition: var(--transition);
-  }
-  
-  .download-btn:hover {
-    background: #e05d00;
-  }
-  
-  /* Адаптивность */
-  @media (max-width: 768px) {
-    .header .container {
-      flex-direction: column;
-      gap: 15px;
-    }
-    
-    .hero {
-      padding: 120px 0 80px;
-    }
-    
-    .portfolio-grid {
-      grid-template-columns: 1fr;
-    }
-  }
+    border-radius: 0 0 8px 8px;
+}
