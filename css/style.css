@@ -91,6 +91,7 @@
     transition: var(--transition);
     font-weight: 600;
     text-align: center;
+    text-decoration: none;
   }
   
   .btn-details:hover {
@@ -602,7 +603,7 @@
       border-bottom: 1px solid #eee;
     }
     
-    .phone, .btn-call {
+    .email, .btn-call {
       display: none;
     }
     
@@ -663,3 +664,1002 @@
       grid-template-columns: 1fr;
     }
   }
+
+
+/* Шапка */
+.header {
+    background: var(--white);
+    box-shadow: var(--shadow);
+    position: fixed;
+    top: 0; /* Явно прижимаем к верху */
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 10px 0; /* Уменьшаем отступы */
+    transition: var(--transition);
+  }
+  
+  .header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px; /* Добавляем боковые отступы */
+  }
+  
+  /* Герой-баннер - добавляем отступ сверху */
+  .hero {
+    margin-top: 60px; /* Убедитесь, что это значение соответствует высоте шапки */
+    /* остальные стили hero... */
+  }
+  
+  /* Бургер-меню - корректируем позицию */
+  .burger-menu {
+    position: absolute; /* Меняем fixed на absolute относительно шапки */
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    /* остальные стили бургер-меню... */
+  }
+  
+  @media (max-width: 768px) {
+    .header {
+      padding: 5px 0; /* Ещё меньше отступы в мобильной версии */
+    }
+    
+    .burger-menu {
+      position: fixed; /* В мобильной версии оставляем fixed */
+      top: 10px;
+      right: 10px;
+      transform: none;
+    }
+    
+    .hero {
+      margin-top: 50px; /* Меньший отступ для мобильной версии */
+    }
+  }
+
+
+/* Шапка */
+.header {
+    background: var(--white);
+    box-shadow: var(--shadow);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 10px 0;
+    transition: var(--transition);
+  }
+  
+  .header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    position: relative; /* Для позиционирования бургер-меню */
+  }
+  
+  /* Стилизованное бургер-меню */
+  .burger-menu {
+    display: none; /* Скрыто на десктопе */
+    width: 44px;
+    height: 44px;
+    background: var(--primary);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 1001;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-left: auto; /* Выравнивание по правому краю */
+    transition: var(--transition);
+  }
+  
+  .burger-menu:hover {
+    background: #081f4f; /* Темнее основной кнопки при наведении */
+  }
+  
+  .burger-menu span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    margin: 3px 0;
+    transition: var(--transition);
+    transform-origin: center;
+  }
+  
+  /* Анимация бургера при открытии */
+  .burger-menu.active {
+    background: var(--secondary); /* Оранжевый при активном состоянии */
+  }
+  
+  .burger-menu.active span:nth-child(1) {
+    transform: translateY(5px) rotate(45deg);
+  }
+  
+  .burger-menu.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .burger-menu.active span:nth-child(3) {
+    transform: translateY(-5px) rotate(-45deg);
+  }
+  
+  /* Мобильное меню */
+  @media (max-width: 768px) {
+    .burger-menu {
+      display: flex; /* Показываем только на мобильных */
+    }
+    
+    .nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 300px;
+      height: 100vh;
+      background: var(--white);
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 80px 20px 20px;
+      transition: right 0.3s ease;
+      box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    }
+    
+    .nav.active {
+      right: 0;
+    }
+    
+    .nav a {
+      width: 100%;
+      padding: 15px 0;
+      margin: 0;
+      border-bottom: 1px solid #eee;
+      font-size: 1.1rem;
+    }
+    
+    .email, .btn-call {
+      display: none;
+    }
+    
+    /* Затемнение фона */
+    .nav-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      z-index: 999;
+    }
+    
+    .nav.active + .nav-overlay {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    
+    /* Запрет прокрутки */
+    .no-scroll {
+      overflow: hidden;
+    }
+  }
+
+/* Стили для кнопки скачивания в портфолио */
+.download-btn {
+    position: absolute;
+    bottom: -40px; /* Опускаем кнопку ниже */
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background: var(--secondary);
+    color: var(--white);
+    padding: 12px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 14px;
+    opacity: 0; /* Сначала скрыта */
+    transform: translateY(20px);
+  }
+  
+  .portfolio-item:hover .download-btn {
+    bottom: 0; /* Поднимаем при наведении */
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Анимация оверлея - теперь останавливается выше */
+  .portfolio-overlay {
+    position: absolute;
+    bottom: -40px; /* Оставляем место для кнопки */
+    left: 0;
+    right: 0;
+    background: rgba(10, 36, 99, 0.9);
+    color: white;
+    padding: 15px 20px 60px; /* Увеличиваем нижний отступ */
+    transition: all 0.3s ease;
+  }
+  
+  .portfolio-item:hover .portfolio-overlay {
+    bottom: 0;
+  }
+
+
+/* Добавьте в конец CSS файла */
+#feedback-form {
+    transition: box-shadow 0.3s ease;
+  }
+  
+  /* Стили для активного состояния формы */
+  #feedback-form:focus-within {
+    border-left: 3px solid var(--secondary);
+    padding-left: 15px;
+  }
+
+
+  /* Добавьте эти стили в ваш CSS файл */
+#feedback-form {
+    transition: all 0.3s ease;
+    animation: fadeIn 0.5s ease;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0.5; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  #feedback-form input:first-of-type:focus {
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 2px rgba(255, 109, 0, 0.2);
+  }
+
+
+  
+  #feedback-form {
+    animation: formAppear 0.5s ease forwards;
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  
+  @keyframes formAppear {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
+  #feedback-form {
+    transition: all 0.5s ease;
+    animation: formAppear 0.7s ease forwards;
+}
+
+@keyframes formAppear {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Добавьте эти стили в CSS */
+.portfolio-item {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 8px;
+    background: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.portfolio-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.portfolio-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.portfolio-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(10, 36, 99, 0.9);
+    color: var(--white);
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    display: block;
+    background: var(--secondary);
+    color: var(--white);
+    padding: 10px;
+    text-align: center;
+    border-radius: 4px;
+    margin-top: 15px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.download-btn:hover {
+    background: #e05d00;
+}
+
+/* Десктопная версия - скрываем оверлей по умолчанию */
+@media (min-width: 769px) {
+    .portfolio-overlay {
+        transform: translateY(100%);
+    }
+    
+    .portfolio-item:hover .portfolio-overlay {
+        transform: translateY(0);
+    }
+    
+    .portfolio-item:hover img {
+        transform: scale(1.1);
+    }
+}
+
+/* Мобильная версия - оверлей всегда виден */
+@media (max-width: 768px) {
+    .portfolio-overlay {
+        height: auto;
+        padding: 15px;
+    }
+    
+    .download-btn {
+        display: none; /* Скрываем кнопку, так как скачивание будет по клику на изображение */
+    }
+    
+    .portfolio-image-container {
+        cursor: pointer;
+    }
+}
+
+
+/* Общие стили для портфолио */
+.portfolio-item {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 8px;
+    background: var(--white);
+    box-shadow: var(--shadow);
+    cursor: pointer;
+}
+
+.portfolio-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.portfolio-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.portfolio-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(10, 36, 99, 0.9);
+    color: var(--white);
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    display: block;
+    background: var(--secondary);
+    color: var(--white);
+    padding: 10px;
+    text-align: center;
+    border-radius: 4px;
+    margin-top: 15px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.download-btn:hover {
+    background: #e05d00;
+}
+
+/* Десктопная версия */
+@media (min-width: 769px) {
+    .portfolio-overlay {
+        transform: translateY(100%);
+    }
+    
+    .mobile-download {
+        display: none !important;
+    }
+    
+    .portfolio-item:hover .portfolio-overlay {
+        transform: translateY(0);
+    }
+    
+    .portfolio-item:hover img {
+        transform: scale(1.1);
+    }
+}
+
+/* Мобильная версия */
+@media (max-width: 768px) {
+    .desktop-download {
+        display: none !important;
+    }
+    
+    .mobile-download {
+        display: block !important;
+    }
+    
+    .portfolio-overlay {
+        height: auto;
+        padding: 15px;
+        transform: translateY(0) !important;
+    }
+}
+
+.portfolio-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background: rgba(10, 36, 99, 0.9);
+    color: var(--white);
+    padding: 20px;
+    transition: all 0.3s ease;
+    /* Новые свойства */
+    bottom: 50px; /* Поднимаем оверлей выше кнопки */
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.download-btn {
+    /* Обновленные свойства кнопки */
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+    right: 20px;
+    margin-top: 15px;
+    z-index: 2; /* Кнопка поверх оверлея */
+}
+
+/* Для десктопной версии */
+@media (min-width: 769px) {
+    .portfolio-overlay {
+        bottom: -100%; /* Начальное положение - полностью скрыт */
+        height: calc(100% - 50px); /* Оставляем место для кнопки */
+    }
+    
+    .portfolio-item:hover .portfolio-overlay {
+        bottom: 50px; /* Поднимаем на высоту кнопки */
+    }
+}
+
+/* Для мобильной версии */
+@media (max-width: 768px) {
+    .portfolio-overlay {
+        bottom: 0;
+        height: auto;
+        padding-bottom: 60px; /* Добавляем место для кнопки */
+    }
+    
+    .mobile-download {
+        position: absolute;
+        bottom: 15px;
+        left: 20px;
+        right: 20px;
+    }
+}
+
+.portfolio-text {
+    margin-bottom: 10px;
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.portfolio-overlay h3 {
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+.portfolio-overlay p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.portfolio-text {
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+
+/* Обновляем стили для портфолио */
+.portfolio-item {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 8px;
+    background: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.portfolio-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.portfolio-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.portfolio-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px 20px 60px; /* Увеличиваем нижний отступ для кнопки */
+    background: linear-gradient(to top, rgba(10, 36, 99, 0.9) 60%, transparent);
+    color: var(--white);
+    transition: all 0.3s ease;
+}
+
+.portfolio-text {
+    margin-bottom: 10px;
+}
+
+.download-btn {
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+    right: 20px;
+    background: var(--secondary);
+    color: var(--white);
+    padding: 10px;
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    z-index: 2;
+}
+
+.download-btn:hover {
+    background: #e05d00;
+}
+
+/* Десктопная версия */
+@media (min-width: 769px) {
+    .portfolio-overlay {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    
+    .portfolio-item:hover .portfolio-overlay {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .portfolio-item:hover img {
+        transform: scale(1.05);
+    }
+    
+    .mobile-download {
+        display: none;
+    }
+}
+
+/* Мобильная версия */
+@media (max-width: 768px) {
+    .portfolio-overlay {
+        opacity: 1;
+        transform: translateY(0);
+        padding-bottom: 60px;
+        background: rgba(10, 36, 99, 0.85);
+    }
+    
+    .desktop-download {
+        display: none;
+    }
+    
+    .mobile-download {
+        display: block;
+    }
+}
+
+
+.portfolio-item {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.portfolio-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.portfolio-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Новый стиль для контейнера текста и кнопки */
+.portfolio-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px;
+    background: rgba(10, 36, 99, 0.9);
+    color: white;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-content {
+    transform: translateY(0);
+}
+
+.portfolio-text {
+    margin-bottom: 10px;
+}
+
+.download-btn {
+    display: block;
+    background: var(--secondary);
+    color: white;
+    padding: 8px;
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+/* Мобильная версия */
+@media (max-width: 768px) {
+    .portfolio-content {
+        transform: translateY(0);
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+    }
+    
+    .portfolio-text {
+        order: 1;
+        margin-bottom: 5px;
+    }
+    
+    .download-btn {
+        order: 2;
+        margin-top: 5px;
+    }
+}
+
+.portfolio-text {
+    min-height: 40px;
+    display: flex;
+    align-items: flex-end;
+}
+
+
+.portfolio-item {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.portfolio-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.portfolio-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.portfolio-overlay {
+    position: absolute;
+    bottom: 50px; /* Оставляем место для кнопки */
+    left: 0;
+    right: 0;
+    padding: 15px 20px;
+    background: rgba(10, 36, 99, 0.9);
+    color: white;
+    transform: translateY(100%);
+    transition: all 0.3s ease;
+}
+
+.portfolio-overlay h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.2rem;
+}
+
+.portfolio-overlay p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.download-btn {
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+    right: 20px;
+    background: #FF6D00;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s ease 0.1s;
+    z-index: 2;
+}
+
+/* Анимации при наведении */
+.portfolio-item:hover .portfolio-overlay {
+    transform: translateY(0);
+}
+
+.portfolio-item:hover .download-btn {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Мобильная версия */
+@media (max-width: 768px) {
+    .portfolio-overlay {
+        transform: translateY(0);
+        bottom: 60px;
+        padding: 10px 15px;
+    }
+    
+    .download-btn {
+        transform: translateY(0);
+        opacity: 1;
+        bottom: 10px;
+    }
+}
+
+
+/* Основные стили портфолио */
+.portfolio-item {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.portfolio-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.portfolio-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+/* Стили оверлея с текстом */
+.portfolio-overlay {
+    position: absolute;
+    bottom: 60px; /* Оставляем место для кнопки */
+    left: 0;
+    right: 0;
+    padding: 15px 20px;
+    background: rgba(10, 36, 99, 0.9);
+    color: white;
+    transform: translateY(100%);
+    transition: all 0.3s ease;
+}
+
+/* Стили кнопки (главное изменение) */
+.download-btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #FF6D00;
+    color: white;
+    padding: 12px 0;
+    text-align: center;
+    border: none;
+    border-radius: 0 0 8px 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transform: translateY(100%);
+    transition: all 0.3s ease 0.1s;
+    z-index: 2;
+}
+
+/* Анимации при наведении */
+.portfolio-item:hover .portfolio-overlay {
+    transform: translateY(0);
+}
+
+.portfolio-item:hover .download-btn {
+    transform: translateY(0);
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Мобильная версия */
+@media (max-width: 768px) {
+    .portfolio-overlay {
+        transform: translateY(0);
+        bottom: 50px;
+    }
+    
+    .download-btn {
+        transform: translateY(0);
+        border-radius: 0;
+    }
+}
+
+
+.portfolio-overlay {
+    position: absolute;
+    bottom: 60px; /* Расстояние до кнопки */
+    left: 0;
+    right: 0;
+    padding: 15px 20px;
+    background: rgba(10, 36, 99, 0.9);
+    color: white;
+    transform: translateY(100%);
+    transition: all 0.3s ease;
+    /* Новые свойства */
+    height: auto;
+    border-radius: 8px 8px 0 0; /* Скругление только сверху */
+    margin-bottom: -8px; /* Перекрываем границу кнопки */
+}
+
+.download-btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #FF6D00;
+    color: white;
+    padding: 12px 0;
+    text-align: center;
+    border: none;
+    border-radius: 0 0 8px 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transform: translateY(100%);
+    transition: all 0.3s ease 0.1s;
+    z-index: 2;
+}
+
+/* Анимации при наведении */
+.portfolio-item:hover .portfolio-overlay {
+    transform: translateY(0);
+}
+
+.portfolio-item:hover .download-btn {
+    transform: translateY(0);
+}
+
+/* Мобильная версия */
+@media (max-width: 768px) {
+    .portfolio-overlay {
+        transform: translateY(0);
+        bottom: 50px;
+        margin-bottom: 0;
+    }
+    
+    .download-btn {
+        transform: translateY(0);
+    }
+}
+
+/* Стили для фильтрации портфолио */
+.portfolio-filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    background: none;
+    border: 1px solid #ddd;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
+}
+
+.portfolio-item {
+    display: block; /* Важно для работы фильтрации */
+    transition: all 0.3s ease;
+}
+
+/* Скрываем элементы при фильтрации */
+.portfolio-item.hidden {
+    display: none;
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+
+.form-submit-btn {
+    background: #FF6D00;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    width: auto; /* Автоматическая ширина */
+    min-width: 150px; /* Минимальная ширина */
+    display: inline-block; /* Для центрирования */
+    transition: all 0.3s ease;
+}
+
+.form-submit-btn:hover {
+    background: #E05D00;
+    transform: translateY(-2px);
+}
+
