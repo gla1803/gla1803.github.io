@@ -275,23 +275,5 @@
     </footer>
 
     <script src="js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script>
-        emailjs.init('ваш-user-id');
-    </script>
-
-    <form id="contact-form">
-        <input type="text" name="name" required>
-        <input type="tel" name="phone" required>
-        <button onclick="sendEmail()">Отправить</button>
-    </form>
-
-    <script>
-    function sendEmail() {
-        emailjs.sendForm('service_id', 'template_id', '#contact-form')
-            .then(() => alert('Успешно отправлено!'))
-            .catch(error => alert('Ошибка: ' + error));
-    }
-    </script>
 </body>
 </html>
