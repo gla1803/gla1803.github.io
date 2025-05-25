@@ -241,15 +241,16 @@
                 </div>
                 <div class="contacts-form">
                     <h3 id="feedback-form-anchor">Оставьте заявку</h3>
-                   
-                    <a id="contact-form-anchor"></a>
-                    <form action="https://formsubmit.co/roman-abramov00@mail.ru" method="POST" id="feedback-form">
-                        <input type="hidden" name="_subject" value="Новая заявка с сайта">
-                        <input type="text" class="name" name="name" required placeholder="Ваше имя">
+                    <form id="feedback-form">
+                        <input type="text" name="name" required placeholder="Ваше имя">
                         <input type="email" name="email" required placeholder="Ваш email">
+                        <input type="tel" name="phone" placeholder="Телефон">
                         <textarea name="message" placeholder="Сообщение"></textarea>
-                        <input type="hidden" name="_next" value="https://вашсайт.ru/thanks.html">
-                        <button type="submit" class="form-submit-btn">Отправить</button>
+                        <button type="submit" class="form-submit-btn">
+                            <span class="btn-text">Отправить</span>
+                            <span class="btn-loader" style="display:none;">Отправка...</span>
+                        </button>
+                        <div id="form-message"></div>
                     </form>
                 </div>
             </div>

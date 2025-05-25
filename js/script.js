@@ -215,39 +215,111 @@ function scrollToForm() {
 document.getElementById('feedback-form').addEventListener('submit', function(e) {
     e.preventDefault();
     const form = this;
+    const submitBtn = form.querySelector('.form-submit-btn');
+    const btnText = submitBtn.querySelector('.btn-text');
+    const btnLoader = submitBtn.querySelector('.btn-loader');
     const messageDiv = document.getElementById('form-message');
-    const submitBtn = form.querySelector('button[type="submit"]');
     
-    // Сохраняем исходный текст кнопки
-    const originalBtnText = submitBtn.textContent;
-    submitBtn.textContent = 'Отправка...';
+    // Показать состояние загрузки
+    btnText.style.display = 'none';
+    btnLoader.style.display = 'inline-block';
     submitBtn.disabled = true;
     messageDiv.style.display = 'none';
     
-    // Собираем данные формы
+    // Создаем FormData объект
     const formData = new FormData(form);
     
-    // Отправка AJAX
-    fetch('send-form.php', {
+    // Отправка через FormSubmit.co
+    fetch(form.action, {
         method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        messageDiv.textContent = data.success || data.error;
-        messageDiv.style.color = data.success ? 'green' : 'red';
-        
-        if (data.success) {
-            form.reset();
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
         }
     })
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        }
+        throw new Error('Network response was not ok');
+    })
+    .then(data => {
+        messageDiv.textContent = 'Сообщение успешно отправлено!';
+        messageDiv.className = 'success';
+        messageDiv.style.display = 'block';
+        form.reset();
+    })
     .catch(error => {
-        messageDiv.textContent = 'Ошибка соединения. Попробуйте позже.';
-        messageDiv.style.color = 'red';
+        messageDiv.textContent = 'Ошибка отправки. Попробуйте позже.';
+        messageDiv.className = 'error';
+        messageDiv.style.display = 'block';
+        console.error('Error:', error);
     })
     .finally(() => {
-        messageDiv.style.display = 'block';
-        submitBtn.textContent = originalBtnText;
+        btnText.style.display = 'inline-block';
+        btnLoader.style.display = 'none';
         submitBtn.disabled = false;
     });
+});
+
+// Конфигурация Telegram бота
+const BOT_TOKEN = 'ВАШ_TELEGRAM_BOT_TOKEN'; // Замените на реальный токен
+const CHAT_ID = 'ВАШ_CHAT_ID'; // Замените на ваш chat_id
+
+// Обработка формы через Telegram
+document.getElementById('feedback-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const btnText = submitBtn.querySelector('.btn-text');
+    const btnLoader = submitBtn.querySelector('.btn-loader');
+    const messageDiv = document.getElementById('form-message');
+    
+    // Показать состояние загрузки
+    btnText.style.display = 'none';
+    btnLoader.style.display = 'inline-block';
+    submitBtn.disabled = true;
+    messageDiv.style.display = 'none';
+    
+    try {
+        // Формируем текст сообщения
+        const formData = new FormData(form);
+        const text = `📩 Новая заявка с сайта:\n\n` +
+                     `👤 Имя: ${formData.get('name')}\n` +
+                     `📧 Email: ${formData.get('email')}\n` +
+                     `📞 Телефон: ${formData.get('phone') || 'не указан'}\n` +
+                     `✉️ Сообщение: ${formData.get('message') || 'нет текста'}`;
+        
+        // Отправляем в Telegram
+        const response = await fetch(`https://api.telegram.org/bot7904532193:AAHGVxo1H9sRxAzkWLNDo5d7M4LTY7DJoMY/sendMessage`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                chat_id: CHAT_ID,
+                text: text,
+                parse_mode: 'HTML'
+            })
+        });
+        
+        const data = await response.json();
+        
+        if (data.ok) {
+            messageDiv.textContent = 'Сообщение успешно отправлено!';
+            messageDiv.className = 'success';
+            form.reset();
+        } else {
+            throw new Error(data.description || 'Ошибка Telegram API');
+        }
+    } catch (error) {
+        console.error('Ошибка отправки:', error);
+        messageDiv.textContent = 'Ошибка отправки. Попробуйте позже.';
+        messageDiv.className = 'error';
+    } finally {
+        messageDiv.style.display = 'block';
+        btnText.style.display = 'inline-block';
+        btnLoader.style.display = 'none';
+        submitBtn.disabled = false;
+    }
 });
