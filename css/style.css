@@ -794,6 +794,10 @@
     .burger-menu {
       display: flex; 
     }
+
+    .phone {
+      margin-right: 50px;
+    }
     
     .nav {
       position: fixed;
