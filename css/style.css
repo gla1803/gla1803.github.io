@@ -671,12 +671,12 @@
     background: var(--white);
     box-shadow: var(--shadow);
     position: fixed;
-    top: 0; /* Явно прижимаем к верху */
+    top: 0; 
     left: 0;
     right: 0;
     width: 100%;
     z-index: 1000;
-    padding: 10px 0; /* Уменьшаем отступы */
+    padding: 10px 0; 
     transition: var(--transition);
   }
   
@@ -684,38 +684,36 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 15px; /* Добавляем боковые отступы */
+    padding: 0 15px; 
   }
   
   /* Герой-баннер - добавляем отступ сверху */
   .hero {
-    margin-top: 60px; /* Убедитесь, что это значение соответствует высоте шапки */
-    /* остальные стили hero... */
+    margin-top: 60px; 
   }
   
   /* Бургер-меню - корректируем позицию */
   .burger-menu {
-    position: absolute; /* Меняем fixed на absolute относительно шапки */
+    position: absolute; 
     top: 50%;
     right: 15px;
     transform: translateY(-50%);
-    /* остальные стили бургер-меню... */
   }
   
   @media (max-width: 768px) {
     .header {
-      padding: 5px 0; /* Ещё меньше отступы в мобильной версии */
+      padding: 5px 0; 
     }
     
     .burger-menu {
-      position: fixed; /* В мобильной версии оставляем fixed */
+      position: fixed; 
       top: 10px;
       right: 10px;
       transform: none;
     }
     
     .hero {
-      margin-top: 50px; /* Меньший отступ для мобильной версии */
+      margin-top: 50px; 
     }
   }
 
@@ -739,7 +737,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 15px;
-    position: relative; /* Для позиционирования бургер-меню */
+    position: relative; 
   }
   
   /* Стилизованное бургер-меню */
@@ -756,12 +754,12 @@
     justify-content: center;
     align-items: center;
     padding: 10px;
-    margin-left: auto; /* Выравнивание по правому краю */
+    margin-left: auto; 
     transition: var(--transition);
   }
   
   .burger-menu:hover {
-    background: #081f4f; /* Темнее основной кнопки при наведении */
+    background: #081f4f; 
   }
   
   .burger-menu span {
@@ -776,7 +774,7 @@
   
   /* Анимация бургера при открытии */
   .burger-menu.active {
-    background: var(--secondary); /* Оранжевый при активном состоянии */
+    background: var(--secondary); 
   }
   
   .burger-menu.active span:nth-child(1) {
@@ -794,7 +792,7 @@
   /* Мобильное меню */
   @media (max-width: 768px) {
     .burger-menu {
-      display: flex; /* Показываем только на мобильных */
+      display: flex; 
     }
     
     .nav {
@@ -857,7 +855,7 @@
 /* Стили для кнопки скачивания в портфолио */
 .download-btn {
     position: absolute;
-    bottom: -40px; /* Опускаем кнопку ниже */
+    bottom: -40px; 
     left: 0;
     right: 0;
     z-index: 10;
@@ -870,12 +868,12 @@
     transition: all 0.3s ease;
     font-weight: 600;
     font-size: 14px;
-    opacity: 0; /* Сначала скрыта */
+    opacity: 0; 
     transform: translateY(20px);
   }
   
   .portfolio-item:hover .download-btn {
-    bottom: 0; /* Поднимаем при наведении */
+    bottom: 0; 
     opacity: 1;
     transform: translateY(0);
   }
@@ -883,12 +881,12 @@
   /* Анимация оверлея - теперь останавливается выше */
   .portfolio-overlay {
     position: absolute;
-    bottom: -40px; /* Оставляем место для кнопки */
+    bottom: -40px; 
     left: 0;
     right: 0;
     background: rgba(10, 36, 99, 0.9);
     color: white;
-    padding: 15px 20px 60px; /* Увеличиваем нижний отступ */
+    padding: 15px 20px 60px; 
     transition: all 0.3s ease;
   }
   
@@ -897,19 +895,19 @@
   }
 
 
-/* Добавьте в конец CSS файла */
+
 #feedback-form {
     transition: box-shadow 0.3s ease;
   }
   
-  /* Стили для активного состояния формы */
+ 
   #feedback-form:focus-within {
     border-left: 3px solid var(--secondary);
     padding-left: 15px;
   }
 
 
-  /* Добавьте эти стили в ваш CSS файл */
+  
 #feedback-form {
     transition: all 0.3s ease;
     animation: fadeIn 0.5s ease;
@@ -952,7 +950,7 @@
 }
 
 
-/* Добавьте эти стили в CSS */
+
 .portfolio-item {
     position: relative;
     height: 250px;
@@ -1026,7 +1024,7 @@
     }
     
     .download-btn {
-        display: none; /* Скрываем кнопку, так как скачивание будет по клику на изображение */
+        display: none; 
     }
     
     .portfolio-image-container {
@@ -1131,8 +1129,7 @@
     color: var(--white);
     padding: 20px;
     transition: all 0.3s ease;
-    /* Новые свойства */
-    bottom: 50px; /* Поднимаем оверлей выше кнопки */
+    bottom: 50px; 
     height: auto;
     display: flex;
     flex-direction: column;
@@ -1140,24 +1137,23 @@
 }
 
 .download-btn {
-    /* Обновленные свойства кнопки */
     position: absolute;
     bottom: 15px;
     left: 20px;
     right: 20px;
     margin-top: 15px;
-    z-index: 2; /* Кнопка поверх оверлея */
+    z-index: 2;
 }
 
 /* Для десктопной версии */
 @media (min-width: 769px) {
     .portfolio-overlay {
-        bottom: -100%; /* Начальное положение - полностью скрыт */
-        height: calc(100% - 50px); /* Оставляем место для кнопки */
+        bottom: -100%; 
+        height: calc(100% - 50px); 
     }
     
     .portfolio-item:hover .portfolio-overlay {
-        bottom: 50px; /* Поднимаем на высоту кнопки */
+        bottom: 50px; 
     }
 }
 
@@ -1166,7 +1162,7 @@
     .portfolio-overlay {
         bottom: 0;
         height: auto;
-        padding-bottom: 60px; /* Добавляем место для кнопки */
+        padding-bottom: 60px; 
     }
     
     .mobile-download {
@@ -1228,7 +1224,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 15px 20px 60px; /* Увеличиваем нижний отступ для кнопки */
+    padding: 15px 20px 60px; 
     background: linear-gradient(to top, rgba(10, 36, 99, 0.9) 60%, transparent);
     color: var(--white);
     transition: all 0.3s ease;
@@ -1398,7 +1394,7 @@
 
 .portfolio-overlay {
     position: absolute;
-    bottom: 50px; /* Оставляем место для кнопки */
+    bottom: 50px; 
     left: 0;
     right: 0;
     padding: 15px 20px;
@@ -1492,7 +1488,7 @@
 /* Стили оверлея с текстом */
 .portfolio-overlay {
     position: absolute;
-    bottom: 60px; /* Оставляем место для кнопки */
+    bottom: 60px; 
     left: 0;
     right: 0;
     padding: 15px 20px;
@@ -1551,7 +1547,7 @@
 
 .portfolio-overlay {
     position: absolute;
-    bottom: 60px; /* Расстояние до кнопки */
+    bottom: 60px; 
     left: 0;
     right: 0;
     padding: 15px 20px;
@@ -1559,10 +1555,9 @@
     color: white;
     transform: translateY(100%);
     transition: all 0.3s ease;
-    /* Новые свойства */
     height: auto;
-    border-radius: 8px 8px 0 0; /* Скругление только сверху */
-    margin-bottom: -8px; /* Перекрываем границу кнопки */
+    border-radius: 8px 8px 0 0; 
+    margin-bottom: -8px; 
 }
 
 .download-btn {
@@ -1631,7 +1626,7 @@
 }
 
 .portfolio-item {
-    display: block; /* Важно для работы фильтрации */
+    display: block; 
     transition: all 0.3s ease;
 }
 
@@ -1652,9 +1647,9 @@
     font-weight: 600;
     border-radius: 4px;
     cursor: pointer;
-    width: auto; /* Автоматическая ширина */
-    min-width: 150px; /* Минимальная ширина */
-    display: inline-block; /* Для центрирования */
+    width: auto; 
+    min-width: 150px; 
+    display: inline-block; 
     transition: all 0.3s ease;
 }
 
