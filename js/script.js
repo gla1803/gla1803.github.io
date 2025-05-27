@@ -256,3 +256,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     init();
 });
+
+
+document.querySelectorAll('.btn-details').forEach(button => {
+    button.addEventListener('click', () => {
+      const targetId = button.getAttribute('data-scroll-to');
+      document.getElementById(targetId).scrollIntoView({ 
+        behavior: 'smooth' 
+      });
+    });
+  });
