@@ -266,3 +266,60 @@ document.querySelectorAll('.btn-details').forEach(button => {
       });
     });
   });
+
+
+
+// Удаляем класс no-js при загрузке
+document.body.classList.remove('no-js');
+
+// Инициализация карусели с точными настройками центрирования
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.querySelector('.glide')) {
+        new Glide('.glide', {
+            type: 'carousel',
+            startAt: 0,
+            perView: 3,
+            gap: 0,
+            animationDuration: 600,
+            peek: 0,
+            bound: true,
+            breakpoints: {
+                768: {
+                    perView: 1,
+                    gap: 0,
+                    peek: 0
+                }
+            }
+        }).mount();
+    }
+});
+
+
+// Инициализация каруселей портфолио
+document.addEventListener('DOMContentLoaded', function() {
+    // Инициализация каждой карусели портфолио
+    document.querySelectorAll('.portfolio-glide').forEach(function(element) {
+        new Glide(element, {
+            type: 'carousel',
+            perView: 1,
+            animationDuration: 500,
+            hoverpause: true,
+            dragThreshold: 20
+        }).mount();
+    });
+});
+
+
+
+// Инициализация каруселей фотографий
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.equipment-glide').forEach(function(carousel) {
+        new Glide(carousel, {
+            type: 'carousel',
+            perView: 1,
+            animationDuration: 500,
+            dragThreshold: 20,
+            gap: 0
+        }).mount();
+    });
+});

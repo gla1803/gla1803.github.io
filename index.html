@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Абрам - Благоустройство и отделка</title>
+    <title>ОПК - Благоустройство и отделка</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+    <!-- Glide.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.5.2/dist/css/glide.core.min.css">
+
 </head>
-<body>
+<body class="no-js">
     <!-- Шапка -->
     <header class="header">
         <div class="container">
-            <div class="logo">Абрам</div>
+            <div class="logo">ОПК</div>
             <nav class="nav">
                 <a href="#products">Товары</a>
                 <a href="#services">Услуги</a>
@@ -21,7 +24,7 @@
                 <a href="#contacts">Контакты</a>
             </nav>
             <div class="phone">
-                <a href="tel:+79991234567">+7 (999) 123-45-67</a>
+                <a href="tel:+79806511563" class="phone-link">+7 (980) 651-15-63</a>
                 <button class="btn-call">Заказать звонок</button>
             </div>
             <button class="burger-menu" aria-label="Меню">
@@ -48,11 +51,77 @@
     <section id="products" class="section products">
         <div class="container">
             <h2 class="section-title">Качественные материалы для вашего проекта</h2>
-            <div class="products-grid">
+            
+            <div class="products-carousel-wrapper">
+                <div class="glide products-carousel">
+                    <div class="glide__track" data-glide-el="track">
+                        <div class="glide__slides">
+                            <!-- Карточка товара 1 -->
+                            <div class="glide__slide">
+                                <div class="product-card">
+                                    <div class="product-image">
+                                        <img src="img/bench/4.png" alt="Скамейки садовые" loading="lazy">
+                                    </div>
+                                    <h3>Скамейки садовые</h3>
+                                    <p>Дерево + металл, 3 размера</p>
+                                    <div class="price">от 12 000 ₽</div>
+                                    <button class="btn-details" data-scroll-to="contacts">Подробнее</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Карточка товара 2 -->
+                            <div class="glide__slide">
+                                <div class="product-card">
+                                    <div class="product-image">
+                                        <img src="img/беседки/1.jpg" alt="Беседки и навесы" loading="lazy">
+                                    </div>
+                                    <h3>Беседки и навесы</h3>
+                                    <p>Сосна/металл, 5+ конструкций</p>
+                                    <div class="price">от 35 000 ₽</div>
+                                    <button class="btn-details" data-scroll-to="contacts">Подробнее</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Карточка товара 3 -->
+                            <div class="glide__slide">
+                                <div class="product-card">
+                                    <div class="product-image">
+                                        <img src="img/плиты/1.png" alt="Дорожные плиты" loading="lazy">
+                                    </div>
+                                    <h3>Дорожные плиты</h3>
+                                    <p>Толщина 6-10 см, нагрузка до 5т</p>
+                                    <div class="price">от 1 200 ₽/м²</div>
+                                    <button class="btn-details" data-scroll-to="contacts">Подробнее</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Карточка товара 4 -->
+                            <div class="glide__slide">
+                                <div class="product-card">
+                                    <div class="product-image">
+                                        <img src="img/профлист/1.png" alt="Профлист для заборов" loading="lazy">
+                                    </div>
+                                    <h3>Профлист для заборов</h3>
+                                    <p>5 цветов, толщина 0.4-0.5 мм</p>
+                                    <div class="price">от 650 ₽/м²</div>
+                                    <button class="btn-details" data-scroll-to="contacts">Подробнее</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glide__arrows" data-glide-el="controls">
+                        <button class="glide__arrow glide__arrow--left" data-glide-dir="<">←</button>
+                        <button class="glide__arrow glide__arrow--right" data-glide-dir=">">→</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Fallback для отключенного JS -->
+            <div class="products-grid-fallback">
                 <!-- Карточка товара 1 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="https://images.pexels.com/photos/2603464/pexels-photo-2603464.jpeg" alt="Скамейки садовые" loading="lazy">
+                        <img src="img/bench/4.png" alt="Скамейки садовые" loading="lazy">
                     </div>
                     <h3>Скамейки садовые</h3>
                     <p>Дерево + металл, 3 размера</p>
@@ -63,7 +132,7 @@
                 <!-- Карточка товара 2 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf" alt="Беседки и навесы" loading="lazy">
+                        <img src="img/беседки/1.jpg" alt="Беседки и навесы" loading="lazy">
                     </div>
                     <h3>Беседки и навесы</h3>
                     <p>Сосна/металл, 5+ конструкций</p>
@@ -74,7 +143,7 @@
                 <!-- Карточка товара 3 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="https://images.pexels.com/photos/221027/pexels-photo-221027.jpeg" alt="Дорожные плиты" loading="lazy">
+                        <img src="img/плиты/1.png" alt="Дорожные плиты" loading="lazy">
                     </div>
                     <h3>Дорожные плиты</h3>
                     <p>Толщина 6-10 см, нагрузка до 5т</p>
@@ -85,7 +154,7 @@
                 <!-- Карточка товара 4 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb" alt="Профлист для заборов" loading="lazy">
+                        <img src="img/профлист/1.png" alt="Профлист для заборов" loading="lazy">
                     </div>
                     <h3>Профлист для заборов</h3>
                     <p>5 цветов, толщина 0.4-0.5 мм</p>
@@ -151,8 +220,27 @@
             <div class="products-grid">
                 <!-- Карточка товара 1 -->
                 <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://www.technodom.com/wp-content/uploads/2023/10/c5a2284.jpg" alt="Экскаваторы" loading="lazy">
+                    <div class="equipment-photo-carousel">
+                        <div class="glide equipment-glide">
+                            <div class="glide__track" data-glide-el="track">
+                                <div class="glide__slides">
+                                    <div class="glide__slide">
+                                        <div class="product-image">
+                                            <img src="img/экскаватор/1.jpg" alt="Экскаватор" loading="lazy">
+                                        </div>
+                                    </div>
+                                    <div class="glide__slide">
+                                        <div class="product-image">
+                                            <img src="img/экскаватор/2.jpg" alt="Экскаватор" loading="lazy">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="glide__arrows" data-glide-el="controls">
+                                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">←</button>
+                                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">→</button>
+                            </div>
+                        </div>
                     </div>
                     <h3>Экскаваторы</h3>
                     <ul>
@@ -164,10 +252,30 @@
                     <button class="btn-details" data-scroll-to="contacts">Подробнее</button>
                 </div>
                 
+
                 <!-- Карточка товара 2 -->
                 <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPxht8o3dwECvlAwWFbY9I3ubwmv0ISIm9rg&s" alt="Самосвалы" loading="lazy">
+                    <div class="equipment-photo-carousel">
+                        <div class="glide equipment-glide">
+                            <div class="glide__track" data-glide-el="track">
+                                <div class="glide__slides">
+                                    <div class="glide__slide">
+                                        <div class="product-image">
+                                            <img src="img/газель/1.jpg" alt="Экскаватор" loading="lazy">
+                                        </div>
+                                    </div>
+                                    <div class="glide__slide">
+                                        <div class="product-image">
+                                            <img src="img/газель/2.jpg" alt="Экскаватор" loading="lazy">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="glide__arrows" data-glide-el="controls">
+                                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">←</button>
+                                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">→</button>
+                            </div>
+                        </div>
                     </div>
                     <h3>Самосвалы</h3>
                     <ul>
@@ -178,11 +286,31 @@
                     <div class="price">от 10 000 ₽</div>
                     <button class="btn-details" data-scroll-to="contacts">Подробнее</button>
                 </div>
-                
+
+
                 <!-- Карточка товара 3 -->
                 <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHuTx2EnUIeKp0kaWLLO-rFLGGbc3sMseVWw&s" alt="Автокраны" loading="lazy">
+                    <div class="equipment-photo-carousel">
+                        <div class="glide equipment-glide">
+                            <div class="glide__track" data-glide-el="track">
+                                <div class="glide__slides">
+                                    <div class="glide__slide">
+                                        <div class="product-image">
+                                            <img src="img/кран/1.png" alt="Экскаватор" loading="lazy">
+                                        </div>
+                                    </div>
+                                    <div class="glide__slide">
+                                        <div class="product-image">
+                                            <img src="img/кран/2.png" alt="Экскаватор" loading="lazy">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="glide__arrows" data-glide-el="controls">
+                                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">←</button>
+                                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">→</button>
+                            </div>
+                        </div>
                     </div>
                     <h3>Автокраны</h3>
                     <ul>
@@ -193,11 +321,113 @@
                     <div class="price">от 10 000 ₽</div>
                     <button class="btn-details" data-scroll-to="contacts">Подробнее</button>
                 </div>
-                
+
+                <!-- Карточка товара 4 -->
+                <div class="product-card">
+                    <div class="equipment-photo-carousel">
+                        <div class="glide equipment-glide">
+                            <div class="glide__track" data-glide-el="track">
+                                <div class="glide__slides">
+                                    <div class="glide__slide">
+                                        <div class="product-image">
+                                            <img src="img/трактор/1.png" alt="Экскаватор" loading="lazy">
+                                        </div>
+                                    </div>
+                                    <div class="glide__slide">
+                                        <div class="product-image">
+                                            <img src="img/трактор/2.png" alt="Экскаватор" loading="lazy">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="glide__arrows" data-glide-el="controls">
+                                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">←</button>
+                                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">→</button>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Тракторы</h3>
+                    <ul>
+                        <li>Различная грузоподъемность</li>
+                        <li>Монтажные работы</li>
+                        <li>Работа на высоте</li>
+                    </ul>
+                    <div class="price">от 10 000 ₽</div>
+                    <button class="btn-details" data-scroll-to="contacts">Подробнее</button>
+                </div>
+
+
+                <!-- Карточка товара 5 -->
+                <div class="product-card">
+                    <div class="equipment-photo-carousel">
+                        <div class="glide equipment-glide">
+                            <div class="glide__track" data-glide-el="track">
+                                <div class="glide__slides">
+                                    <div class="glide__slide">
+                                        <div class="product-image">
+                                            <img src="img/манипулятор/1.png" alt="Экскаватор" loading="lazy">
+                                        </div>
+                                    </div>
+                                    <div class="glide__slide">
+                                        <div class="product-image">
+                                            <img src="img/манипулятор/2.png" alt="Экскаватор" loading="lazy">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="glide__arrows" data-glide-el="controls">
+                                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">←</button>
+                                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">→</button>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Манипулятор</h3>
+                    <ul>
+                        <li>Различная грузоподъемность</li>
+                        <li>Монтажные работы</li>
+                        <li>Работа на высоте</li>
+                    </ul>
+                    <div class="price">от 10 000 ₽</div>
+                    <button class="btn-details" data-scroll-to="contacts">Подробнее</button>
+                </div>
+
+
+                <!-- Карточка товара 6 -->
+                <div class="product-card">
+                    <div class="equipment-photo-carousel">
+                        <div class="glide equipment-glide">
+                            <div class="glide__track" data-glide-el="track">
+                                <div class="glide__slides">
+                                    <div class="glide__slide">
+                                        <div class="product-image">
+                                            <img src="img/люлька/1.png" alt="Экскаватор" loading="lazy">
+                                        </div>
+                                    </div>
+                                    <div class="glide__slide">
+                                        <div class="product-image">
+                                            <img src="img/люлька/2.png" alt="Экскаватор" loading="lazy">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="glide__arrows" data-glide-el="controls">
+                                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">←</button>
+                                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">→</button>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Люлька</h3>
+                    <ul>
+                        <li>Различная грузоподъемность</li>
+                        <li>Монтажные работы</li>
+                        <li>Работа на высоте</li>
+                    </ul>
+                    <div class="price">от 10 000 ₽</div>
+                    <button class="btn-details" data-scroll-to="contacts">Подробнее</button>
+                </div>
             </div>
         </div>
     </section>
-
 
     <!-- Портфолио -->
     <section id="portfolio" class="section portfolio">
@@ -205,45 +435,162 @@
             <h2 class="section-title">Наши работы</h2>
             <div class="portfolio-filter">
                 <button class="filter-btn active" data-filter="all">Все работы</button>
-                <button class="filter-btn" data-filter="landscape">Благоустройство</button>
                 <button class="filter-btn" data-filter="interior">Отделка</button>
+                <button class="filter-btn" data-filter="landscape">Благоустройство</button>
                 <button class="filter-btn" data-filter="maf">МАФ</button>
             </div>
+            
             <div class="portfolio-grid">
-                <!-- Отделка -->
-                <!-- В секции портфолио замените portfolio-item на этот код -->
+                <!-- Проект 1 -->
                 <div class="portfolio-item" data-category="interior">
-                    <div class="portfolio-image-container">
-                        <img src="img/parking.PNG" alt="Подземный паркинг" loading="lazy">
-                        <div class="portfolio-overlay">
-                            <h3>Подземный паркинг</h3>
-                            <p>ЖК «Новация»</p>
+                    <div class="portfolio-carousel">
+                        <div class="glide portfolio-glide">
+                            <div class="glide__track" data-glide-el="track">
+                                <div class="glide__slides">
+                                    <div class="glide__slide">
+                                        <div class="portfolio-image-container">
+                                            <img src="img/parking/1.jpg" alt="Подземный паркинг" loading="lazy">
+                                            <div class="portfolio-overlay">
+                                                <h3>Подземный паркинг</h3>
+                                                <p>ЖК «Новация»</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="glide__slide">
+                                        <div class="portfolio-image-container">
+                                            <img src="img/parking/2.jpg" alt="Подземный паркинг" loading="lazy">
+                                            <div class="portfolio-overlay">
+                                                <h3>Подземный паркинг</h3>
+                                                <p>Детали конструкции</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="glide__arrows" data-glide-el="controls">
+                                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">←</button>
+                                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">→</button>
+                            </div>
                         </div>
                         <a href="files/parking.pdf" target="_blank" class="download-btn">Скачать PDF</a>
                     </div>
                 </div>
 
+                <!-- Проект 2 -->
                 <div class="portfolio-item" data-category="landscape">
-                    <div class="portfolio-image-container">
-                        <img src="img/lamp.png" alt="Детская площадка" loading="lazy">
-                        <div class="portfolio-overlay">
-                            <h3>Освещение</h3>
-                            <p>ЖК «Новация»</p>
+                    <div class="portfolio-carousel">
+                        <div class="glide portfolio-glide">
+                            <div class="glide__track" data-glide-el="track">
+                                <div class="glide__slides">
+                                    <div class="glide__slide">
+                                        <div class="portfolio-image-container">
+                                            <img src="img/lamps/1.jpg" alt="Освещение" loading="lazy">
+                                            <div class="portfolio-overlay">
+                                                <h3>Освещение</h3>
+                                                <p>ЖК «Новация»</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="glide__slide">
+                                        <div class="portfolio-image-container">
+                                            <img src="img/lamps/2.jpg" alt="Освещение" loading="lazy">
+                                            <div class="portfolio-overlay">
+                                                <h3>Освещение</h3>
+                                                <p>Вечерний вид</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="glide__arrows" data-glide-el="controls">
+                                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">←</button>
+                                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">→</button>
+                            </div>
                         </div>
                         <a href="files/lamps.pdf" target="_blank" class="download-btn">Скачать PDF</a>
                     </div>
                 </div>
 
+                <!-- Проект 3 -->
                 <div class="portfolio-item" data-category="maf">
-                    <div class="portfolio-image-container">
-                        <img src="img/bench.jpg" alt="Садовая мебель" loading="lazy">
-                        <div class="portfolio-overlay">
-                                <h3>Беседка в парке</h3>
-                                <p>Сосна + металл</p>
+                    <div class="portfolio-carousel">
+                        <div class="glide portfolio-glide">
+                            <div class="glide__track" data-glide-el="track">
+                                <div class="glide__slides">
+                                    <div class="glide__slide">
+                                        <div class="portfolio-image-container">
+                                            <img src="img/bench/1.jpg" alt="Подземный паркинг" loading="lazy">
+                                            <div class="portfolio-overlay">
+                                                <h3>Беседка в парке</h3>
+                                                <p>Сосна + металл</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="glide__slide">
+                                        <div class="portfolio-image-container">
+                                            <img src="img/bench/2.jpg" alt="Подземный паркинг" loading="lazy">
+                                            <div class="portfolio-overlay">
+                                                <h3>Беседка в парке</h3>
+                                                <p>Сосна + металл</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="glide__slide">
+                                        <div class="portfolio-image-container">
+                                            <img src="img/bench/3.jpg" alt="Подземный паркинг" loading="lazy">
+                                            <div class="portfolio-overlay">
+                                                <h3>Беседка в парке</h3>
+                                                <p>Сосна + металл</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="glide__arrows" data-glide-el="controls">
+                                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">←</button>
+                                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">→</button>
+                            </div>
                         </div>
                         <a href="files/benches.pdf" target="_blank" class="download-btn">Скачать PDF</a>
                     </div>
                 </div>
+
+
+                <!-- Проект 4 -->
+                <div class="portfolio-item" data-category="interior">
+                    <div class="portfolio-carousel">
+                        <div class="glide portfolio-glide">
+                            <div class="glide__track" data-glide-el="track">
+                                <div class="glide__slides">
+                                    <div class="glide__slide">
+                                        <div class="portfolio-image-container">
+                                            <img src="img/ladder/1.jpg" alt="Подземный паркинг" loading="lazy">
+                                            <div class="portfolio-overlay">
+                                                <h3>Покраска лестницы</h3>
+                                                <p></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="glide__slide">
+                                        <div class="portfolio-image-container">
+                                            <img src="img/ladder/2.jpg" alt="Подземный паркинг" loading="lazy">
+                                            <div class="portfolio-overlay">
+                                                <h3>Покраска лестницы</h3>
+                                                <p></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="glide__arrows" data-glide-el="controls">
+                                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">←</button>
+                                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">→</button>
+                            </div>
+                        </div>
+                        <a href="files/portfolio/parking.pdf" target="_blank" class="download-btn">Скачать PDF</a>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </section>
@@ -254,7 +601,7 @@
             <div class="about-content">
                 <div class="about-text">
                     <h2 class="section-title">О компании</h2>
-                    <p><strong>Абрам</strong> — профессиональная команда с 10-летним опытом в сфере благоустройства и отделки. Мы реализовали более 200 проектов в Ярославль и области.</p>
+                    <p><strong>ОПК</strong> — профессиональная команда с 10-летним опытом в сфере благоустройства и отделки. Мы реализовали более 200 проектов в Ярославль и области.</p>
                     <div class="advantages">
                         <div class="advantage">
                             <span class="advantage-icon">✓</span>
@@ -279,18 +626,18 @@
 
     <!-- Контакты -->
     <section id="contacts" class="section contacts">
-        <a id="contact-form-anchor"></a> <!-- Якорь для плавного скролла -->
+        <a id="contact-form-anchor"></a>
         <div class="container">
             <h2 class="section-title">Контакты</h2>
             <div class="contacts-content">
                 <div class="contacts-info">
                     <div class="contact-item">
                         <h3>Телефон</h3>
-                        <a href="tel:+79991234567">+7 (999) 123-45-67</a>
+                        <a href="tel:+79991234567">+7 (980) 651-15-63</a>
                     </div>
                     <div class="contact-item">
                         <h3>Адрес</h3>
-                        <p>г. Ярославль, ул. Строителей, 45</p>
+                        <p>г. Ярославль, ул. Полушкина Роща, 16с41</p>
                     </div>
                     <div class="contact-item">
                         <h3>График работы</h3>
@@ -314,7 +661,7 @@
             </div>
         </div>
         <div class="contacts-map">
-            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1f2..." loading="lazy"></iframe>
+            <iframe src="https://yandex.ru/map-widget/v1/?ll=39.846993%2C57.666787&mode=whatshere&tab=services&whatshere%5Bpoint%5D=39.846993%2C57.666787&whatshere%5Bzoom%5D=17&z=16"></iframe>
         </div>
     </section>
 
@@ -322,17 +669,19 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">Абрам</div>
+                <div class="footer-logo">ОПК</div>
                 <div class="footer-contacts">
-                    <a href="tel:+79991234567">+7 (999) 123-45-67</a>
-                    <p>г. Ярославль, ул. Строителей, 45</p>
+                    <a href="tel:+79991234567">+7 (980) 651-15-63</a>
+                    <p>г. Ярославль, ул. Полушкина Роща, 16с41</p>
                 </div>
             </div>
-            <div class="copyright">© Абрам, 2024</div>
+            <div class="copyright">© ОПК, 2025</div>
         </div>
     </footer>
 
+    <!-- Подключаем Glide.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.5.2/dist/glide.min.js"></script>
     <script src="js/script.js"></script>
-      
+    
 </body>
 </html>
